@@ -20,7 +20,8 @@ eval:
 update-branch:
 	git config --global user.name $(NAME)
 	git config --global user.email $(EMAIL)
-	git commit -am "Update with new results"
+	git add report.md
+	git commit -m "Update with new results"
 	git push --force origin HEAD:update
 
 hf-login:
