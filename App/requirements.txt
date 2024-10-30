@@ -1,4 +1,4 @@
 scikit-learn
 skops
 black
-huggingface_hub
+
