@@ -21,13 +21,14 @@ update-branch:
 	git config --global user.name $(USER_NAME)
 	git config --global user.email $(USER_EMAIL)
 	git add report.md
-	git commit -m "Update with new results"
+	git commit -am "Update with new results"
 	git push --force origin HEAD:update
 
 hf-login:
+	pip install -U "huggingface_hub[cli]"
 	git pull origin update
 	git switch update
-	pip install -U "huggingface_hub[cli]"
+	git config --global credential.helper store
 	huggingface-cli login --token $(HF) --add-to-git-credential
 
 push-hub:
