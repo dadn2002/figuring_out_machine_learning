@@ -18,8 +18,8 @@ eval:
 	cml comment create report.md
 
 update-branch:
-	git config --global user.name $(POTATO1)
-	git config --global user.email $(POTATO2)
+	git config --global user.name $(NAME)
+	git config --global user.email $(EMAIL)
 	git commit -am "Update with new results"
 	git push --force origin HEAD:update
 
@@ -27,7 +27,7 @@ hf-login:
 	git pull origin update
 	git switch update
 	pip install -U "huggingface_hub[cli]"
-	huggingface-cli login --token $(FACE) --add-to-git-credential
+	huggingface-cli login --token $(HF) --add-to-git-credential
 
 push-hub:
 	huggingface-cli upload kingabzpro/Drug-Classification ./App --repo-type=space --commit-message="Sync App files"
